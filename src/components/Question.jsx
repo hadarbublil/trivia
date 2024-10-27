@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import './Question.css';
 
-function AnsOption(question, answers, handleSelectedItem) {
+function Question({question, answers, handleSelectedItem}) {
     const [selectedIndex, setSelectedIndex] = useState(-1);
   return (
     <>
@@ -20,7 +21,7 @@ function AnsOption(question, answers, handleSelectedItem) {
               handleSelectedItem(ans);
             }}
           >
-            {item}
+            {ans}
           </li>
         ))}
       </ul>
@@ -28,4 +29,4 @@ function AnsOption(question, answers, handleSelectedItem) {
   );
 }
 
-export default AnsOption
+export default Question
