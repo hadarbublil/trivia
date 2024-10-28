@@ -1,31 +1,57 @@
 .list-group {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove default padding */
-    margin: 20px 0; /* Margin around the list */
-    max-width: 400px; /* Set max width for better alignment */
-    border: 1px solid #ddd; /* Light border around the list */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
     display: flex; /* Use flexbox to arrange items */
     flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 10px; /* Space between items */
+    gap: 20px; /* Space between items */
 }
 
 .list-group-item {
-    flex: 1 1 45%; /* Allow items to take up to 45% of the container width */
-    padding: 15px; /* Padding for list items */
-    background-color: #f9f9f9; /* Light background color */
+    padding: 50px; /* Padding for list items */
+    background-color: #cfcfd263; /* Light background color */
     cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s; /* Smooth transition on hover */
-    border-radius: 5px; /* Rounded corners */
-    text-align: center; /* Center text within list items */
+    transition: background-color 0.2s; /* Smooth transition on hover */
+    border-radius: 5px; /*Rounded corners*/
+    list-style-type: none;
+    
 }
 
-.list-group-item:hover {
-    background-color: #e9ecef; /* Change background on hover */
+.list-group-item:hover:not(.correct-answer):not(.incorrect-answer) {
+    background-color: #bfc0c1; 
 }
 
 .list-group-item.active {
-    background-color: #4CAF50; /* Green background for active item */
-    color: white; /* White text color for active item */
+    background-color: #4CAF50; 
+    color: white; 
+}
+
+.list-group-item-group1 {
+    display: flex;
+    gap: 20px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow buttons to wrap into rows */
+    justify-content: center; /* Center the buttons */
+}
+
+.button-wrapper {
+    width: 40%; /* Each button takes up half of the container's width */
+    box-sizing: border-box; /* Include padding and border in the element's total width */
+    margin-bottom: 10px; 
+    margin-right: 10px;
+}
+
+.correct-answer {
+    background-color: green;
+    color: white;
+}
+
+.incorrect-answer {
+    background-color: red;
+    color: white;
+}
+
+.highlight-correct-answer {
+    background-color: rgb(8, 217, 43); 
+    color: white;
 }
