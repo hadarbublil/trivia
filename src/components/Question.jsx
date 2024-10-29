@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Question.css";
 import questions from "../questions.json";
 
-function Question({ handleSelectedItem }) {
+function Question({ handleSelectedItem, timer, endGame  }) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const currentQuestion = questions[currentQuestionIndex];
@@ -17,18 +17,21 @@ function Question({ handleSelectedItem }) {
 
     // Automatically move to the next question after a delay
     setTimeout(() => {
-      setCurrentQuestionIndex(
-        (prevIndex) => (prevIndex + 1) % questions.length
-      );
-      setSelectedIndex(-1); // Reset selection for the next question
-      setIsCorrect(null); // Reset correctness state
-      setShowCorrectAnswer(false);
-    }, 1000); // Adjust delay as needed
+      if (currentQuestionIndex < questions.length - 1) {
+          setCurrentQuestionIndex(prevIndex => prevIndex + 1);
+          setSelectedIndex(-1); // Reset selection for the next question
+          setIsCorrect(null); // Reset correctness state
+          setShowCorrectAnswer(false); // Hide correct answer display
+      } else {
+          endGame(); // End the game if it was the last question
+      }
+    }, 1000); 
   };
 
   return (
     <>
       <h2>{currentQuestion.question}</h2>
+      <h3>Time Remaining: {timer} seconds</h3>
       {currentQuestion.answers.length === 0 && <p>No items found</p>}
       <div className="button-container">
         {currentQuestion.answers.map((ans, index) => (
