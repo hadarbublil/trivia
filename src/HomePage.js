@@ -18,6 +18,7 @@ const HomePage = () => {
     setShowQuestion(true);
     setGameOver(false);
     startTimer();
+    setScore(0);
   };
 
   const handleGoHome = () => {
@@ -43,6 +44,8 @@ const HomePage = () => {
     return () => clearInterval(timerId);
   }, [timer]); 
 
+  const [score, setScore] = useState(0);
+
   return (
     <div className="container">
       {!showQuestion ? (
@@ -59,7 +62,8 @@ const HomePage = () => {
           {" "}
           {gameOver ? (
             <div className="game-over-message">
-              <h2>Time is up! Game Over.</h2>
+              <h2>Time is up!<br />Game Over.</h2>
+              <h3 id="game-over-message-score">Your score: {score}</h3>
               <h3>Do you want to start again?</h3>
               <button onClick={handleRestart}>Yes</button>
               <button onClick={handleGoHome}>No</button>
@@ -69,6 +73,8 @@ const HomePage = () => {
               handleSelectedItem={handleSelectedItem}
               endGame={endGame}
               timer={timer} 
+              setScore={setScore}
+              score={score}
             />
           )}
         </div>

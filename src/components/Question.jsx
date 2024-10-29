@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Question.css";
 import questions from "../questions.json";
 
-function Question({ handleSelectedItem, timer, endGame  }) {
+function Question({ handleSelectedItem, timer, endGame, setScore, score }) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const currentQuestion = questions[currentQuestionIndex];
@@ -13,7 +13,12 @@ function Question({ handleSelectedItem, timer, endGame  }) {
     setSelectedIndex(index);
     setIsCorrect(ans === currentQuestion.correctAnswer);
     handleSelectedItem(ans);
+    const correct = ans === currentQuestion.correctAnswer;
     setShowCorrectAnswer(!isCorrect);
+    
+    if (correct) {
+      setScore((prevScore) => prevScore + 1); // Increment score if correct
+    }
 
     // Automatically move to the next question after a delay
     setTimeout(() => {
@@ -32,6 +37,7 @@ function Question({ handleSelectedItem, timer, endGame  }) {
     <>
       <h2>{currentQuestion.question}</h2>
       <h3>Time Remaining: {timer} seconds</h3>
+      <h3>Score: {score} points</h3>
       {currentQuestion.answers.length === 0 && <p>No items found</p>}
       <div className="button-container">
         {currentQuestion.answers.map((ans, index) => (
