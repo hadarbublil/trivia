@@ -1,36 +1,41 @@
-import React, { useState } from "react";
-import "./Question.css";
+import React from "react";
+import { useQuestions } from "../hooks/useQuestions";
 import questions from "../questions.json";
+import AnswerButton from "./AnswerButton";
+import "./Question.css";
 
-function Question({ handleSelectedItem, timer, endGame, setScore, score }) {
-  const [selectedIndex, setSelectedIndex] = useState(-1);
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const currentQuestion = questions[currentQuestionIndex];
-  const [isCorrect, setIsCorrect] = useState(null);
-  const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
+const Question = ({ endGame, timer, setScore, score }) => {
+  const {
+    currentQuestion,
+    selectedIndex,
+    isCorrect,
+    showCorrectAnswer,
+    isLastQuestion,
+    setSelectedIndex,
+    setIsCorrect,
+    setShowCorrectAnswer,
+    handleNextQuestion,
+  } = useQuestions(questions);
 
-  const handleAnswerClick = (ans, index) => {
-    setSelectedIndex(index);
-    setIsCorrect(ans === currentQuestion.correctAnswer);
-    handleSelectedItem(ans);
-    const correct = ans === currentQuestion.correctAnswer;
-    setShowCorrectAnswer(!isCorrect);
-    
-    if (correct) {
-      setScore((prevScore) => prevScore + 1); // Increment score if correct
-    }
+  const handleAnswerClick = (answer, index) => {
+    if (selectedIndex === -1) {
+      setSelectedIndex(index);
+      const correct = answer === currentQuestion.correctAnswer;
+      setIsCorrect(correct);
+      setShowCorrectAnswer(true);
 
-    // Automatically move to the next question after a delay
-    setTimeout(() => {
-      if (currentQuestionIndex < questions.length - 1) {
-          setCurrentQuestionIndex(prevIndex => prevIndex + 1);
-          setSelectedIndex(-1); // Reset selection for the next question
-          setIsCorrect(null); // Reset correctness state
-          setShowCorrectAnswer(false); // Hide correct answer display
-      } else {
-          endGame(); // End the game if it was the last question
+      if (correct) {
+        setScore((prev) => prev + 1);
       }
-    }, 1000); 
+
+      setTimeout(() => {
+        if (isLastQuestion) {
+          endGame();
+        } else {
+          handleNextQuestion();
+        }
+      }, 1000);
+    }
   };
 
   return (
@@ -38,31 +43,22 @@ function Question({ handleSelectedItem, timer, endGame, setScore, score }) {
       <h2>{currentQuestion.question}</h2>
       <h3>Time Remaining: {timer} seconds</h3>
       <h3>Score: {score} points</h3>
-      {currentQuestion.answers.length === 0 && <p>No items found</p>}
       <div className="button-container">
-        {currentQuestion.answers.map((ans, index) => (
-          <div className="button-wrapper" key={index}>
-            <li
-              className={`list-group-item ${
-                selectedIndex === index
-                  ? isCorrect
-                    ? "correct-answer"
-                    : "incorrect-answer showCorrectAnswer"
-                  : ""
-              } ${
-                showCorrectAnswer && ans === currentQuestion.correctAnswer
-                  ? "highlight-correct-answer"
-                  : ""
-              }`}
-              onClick={() => handleAnswerClick(ans, index)}
-            >
-              {ans}
-            </li>
-          </div>
+        {currentQuestion.answers.map((answer, index) => (
+          <AnswerButton
+            key={index}
+            answer={answer}
+            index={index}
+            selectedIndex={selectedIndex}
+            isCorrect={isCorrect}
+            showCorrectAnswer={showCorrectAnswer}
+            correctAnswer={currentQuestion.correctAnswer}
+            onClick={() => handleAnswerClick(answer, index)}
+          />
         ))}
       </div>
     </>
   );
-}
+};
 
 export default Question;

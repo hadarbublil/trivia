@@ -1,0 +1,13 @@
+  .question-mark {
+    width: 150px;
+    height: 200px;
+  }
+
+  #yes{
+    width: 80px;
+    height: 50px;
+    background-color:rgb(251, 223, 131);
+    border-radius: 5px; 
+    cursor: pointer;
+    border: none;
+  }

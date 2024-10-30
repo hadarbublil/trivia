@@ -1,0 +1,14 @@
+import question_mark from '../images/question_mark.jpg'
+import "./WelcomeScreen.css";
+const WelcomeScreen = ({ onStart }) => (
+    <>
+      <h1 id="headline">MyTrivia</h1>
+      <img className="question-mark" src={question_mark} alt="Question Mark" />
+      <h3>Are you ready to start?</h3>
+      <button className="btn" id="yes" onClick={onStart}>
+        Yes
+      </button>
+    </>
+  );
+
+  export default WelcomeScreen
