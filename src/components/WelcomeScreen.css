@@ -1,6 +1,7 @@
   .question-mark {
     width: 150px;
     height: 200px;
+    margin-bottom: 1em;
   }
 
   #yes{
@@ -10,4 +11,17 @@
     border-radius: 5px; 
     cursor: pointer;
     border: none;
+    margin-top: 1em;
   }
+
+  #headline{
+    margin-bottom: 1em;
+    margin-top: 2em;
+    color:rgb(243, 153, 17)
+  }
+
+  .start{
+    color:rgb(243, 153, 17)
+  }
+  
+  
