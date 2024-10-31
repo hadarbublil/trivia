@@ -3,11 +3,12 @@
   color: white;
   padding: 2em;
   border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
   text-align: center;
-  position: relative; /* Relative positioning for animations */
-  margin: 3em; /* Margin around the message */
+  margin: 6em; 
   width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .game-over-message button {
@@ -19,7 +20,7 @@
   font-size: 1.2em;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin: 5px; /* Space between buttons */
+  margin: 5px; 
 }
 
 .game-over-message h2 {
