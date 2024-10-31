@@ -1,11 +1,12 @@
 import { useState } from 'react';
-
+// import { fetchQuestions } from '../TriviaService';
 export const useGameState = (initialTimer = 20) => {
   const [showQuestion, setShowQuestion] = useState(false);
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
   const handleRestart = () => {
+    // fetchQuestions()
     setShowQuestion(true);
     setGameOver(false);
     setScore(0);

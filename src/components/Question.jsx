@@ -1,10 +1,13 @@
 import React from "react";
 import { useQuestions } from "../hooks/useQuestions";
-import questions from "../questions.json";
+// import questions from "../questions.json";
+import qs from "../responseExample.json"
+import { convert } from "../TriviaService";
 import AnswerButton from "./AnswerButton";
 import "./Question.css";
 
 const Question = ({ endGame, timer, setScore, score }) => {
+  const questions = qs.results.map(convert);
   const {
     currentQuestion,
     selectedIndex,

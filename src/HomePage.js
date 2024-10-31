@@ -3,7 +3,9 @@ import Question from './components/Question';
 import GameOver from './components/GameOver';
 import { useGameState } from './hooks/useGameState';
 import { useTimer } from './hooks/useTimer';
-import WelcomeScreen from './components/WelcomeScreen'
+import WelcomeScreen from './components/WelcomeScreen';
+import Navbar from './components/Navbar';
+import { fetchQuestions } from './TriviaService';
 
 const HomePage = () => {
   const {
@@ -25,6 +27,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
+        <Navbar/>
       {!showQuestion ? (
         <WelcomeScreen onStart={handleStart} />
       ) : (
