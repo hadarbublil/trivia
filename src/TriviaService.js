@@ -3,11 +3,17 @@ import axios from 'axios';
 const BASE_URL = 'https://opentdb.com/api.php';
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
+const decodeHtml = (html) => {
+    const parser = new DOMParser();
+    const dom = parser.parseFromString(`<!doctype html><body>${html}`, 'text/html');
+    return dom.body.textContent;
+  };
+
 export const convert = (question) => {
     return {
-      question: question.question,
-      answers: [...question.incorrect_answers, question.correct_answer],
-      correctAnswer: question.correct_answer
+      question: decodeHtml(question.question),
+      answers: [...question.incorrect_answers.map(decodeHtml), decodeHtml(question.correct_answer)],
+      correctAnswer: decodeHtml(question.correct_answer)
     };
   };
 
