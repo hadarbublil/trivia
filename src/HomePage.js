@@ -27,10 +27,10 @@ const HomePage = () => {
 
   const { timer, resetTimer } = useTimer(10, endGame);
 
-  const handleStart = () => {
+  const handleStart = React.useCallback(() => {
     setShowCategories(true);
-  };
-
+  }, [setShowCategories]);
+  
   const handleChosenCategory = (categoryId, categoryName) => {
     setSelectedCategoryId(categoryId);
     setSelectedCategoryName(categoryName);
@@ -44,8 +44,6 @@ const HomePage = () => {
   }
 
  
- 
-  
   return (
     <div className="container">
       <Navbar />

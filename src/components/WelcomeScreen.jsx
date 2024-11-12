@@ -3,7 +3,11 @@ import "./WelcomeScreen.css";
 import React from 'react';
 
 const WelcomeScreen = React.memo(({ onStart }) => {
-    
+  React.useEffect(() => {
+    const img = new Image();
+    img.src = question_mark;
+  }, []);
+
     return ( 
     <div>
       <h1 id="headline">Welcome to MyTrivia</h1>
