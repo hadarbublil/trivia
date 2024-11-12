@@ -6,9 +6,9 @@ The app provides an engaging experience with a timer, score tracking, and the ab
 ## Demo Video
 
 Check out the demo of the MyTrivia App in this video:
-![Alt Text](.\images\MyTriviaDemo.gif)
+![Alt Text](.src\images\MyTriviaDemo.gif)
 
-[Watch the Demo Video](.\images\Demo_MyTrivia.mp4)
+[Watch the Demo Video](.src\images\Demo_MyTrivia.mp4)
 
 ## Features
 
