@@ -20,8 +20,8 @@ const HomePage = () => {
     endGame,
     showCategories,
     setShowCategories,
-    selectedCategory,
-    setSelectedCategory
+    selectedCategoryId,
+    setSelectedCategoryId
   } = useGameState();
 
   const { timer, resetTimer } = useTimer(20, endGame);
@@ -30,14 +30,14 @@ const HomePage = () => {
     setShowCategories(true);
   };
 
-  const handleChosenCategory = (category) => {
-    setSelectedCategory(category);
-    stertOver();
+  const handleChosenCategory = (categoryId) => {
+    setSelectedCategoryId(categoryId);
+    startOver();
     
   };
 
-  const stertOver = () => {
-    handleRestart(selectedCategory);
+  const startOver = () => {
+    handleRestart(selectedCategoryId);
     resetTimer();
   }
 
@@ -58,7 +58,7 @@ const HomePage = () => {
           {gameOver ? (
             <GameOver
               score={score}
-              handleRestart={stertOver}
+              handleRestart={startOver}
               handleGoHome={handleGoHome}
             />
           ) : (

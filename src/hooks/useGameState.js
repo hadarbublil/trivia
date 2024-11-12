@@ -7,7 +7,7 @@ export const useGameState = (initialTimer = 20) => {
   const [score, setScore] = useState(0);
   const [questions, setQuestions] = useState([]);
   const [showCategories, setShowCategories] = useState(false)
-  const [selectedCategory, setSelectedCategory] = useState(null); 
+  const [selectedCategoryId, setSelectedCategoryId] = useState(null); 
 
   const handleRestart = async (category) => {
     const fetchedQuestions = await fetchQuestions(10, category);
@@ -39,8 +39,8 @@ export const useGameState = (initialTimer = 20) => {
     endGame,
     showCategories,
     setShowCategories,
-    selectedCategory,
-    setSelectedCategory
+    selectedCategoryId,
+    setSelectedCategoryId
   };
 };
 

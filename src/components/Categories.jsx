@@ -31,11 +31,11 @@ const Categories = ({handleChosenCategory}) => {
     <div className="categories-container">
       <h2>Please choose questions category</h2>
       <ul className="categories-button-wrapper">
-      {categoryNames.map((category, index) => (
+      {categoryNames.map((categoryName, index) => (
         
         <li className="categories-list-item" key={index}>
-            <button className="categories-buttons" onClick={() => handleChosenCategory(categoryMapping[category])}>
-                {category}
+            <button className="categories-buttons" onClick={() => handleChosenCategory(categoryMapping[categoryName])}>
+                {categoryName}
             </button>
             
         </li>   
