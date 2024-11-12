@@ -8,9 +8,10 @@ export const useGameState = (initialTimer = 20) => {
   const [questions, setQuestions] = useState([]);
   const [showCategories, setShowCategories] = useState(false)
   const [selectedCategoryId, setSelectedCategoryId] = useState(null); 
+  const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
-  const handleRestart = async (category) => {
-    const fetchedQuestions = await fetchQuestions(10, category);
+  const handleRestart = async () => {
+    const fetchedQuestions = await fetchQuestions(10, selectedCategoryId);
     setQuestions (fetchedQuestions)
     setShowQuestion(true);
     setGameOver(false);
@@ -21,7 +22,9 @@ export const useGameState = (initialTimer = 20) => {
   const handleGoHome = () => {
     setShowQuestion(false);
     setGameOver(false);
-    setShowCategories(false)
+    setShowCategories(false);
+    setSelectedCategoryId(null);
+    setSelectedCategoryName(null);
   };
 
   const endGame = () => {
@@ -40,7 +43,9 @@ export const useGameState = (initialTimer = 20) => {
     showCategories,
     setShowCategories,
     selectedCategoryId,
-    setSelectedCategoryId
+    setSelectedCategoryId,
+    selectedCategoryName,
+    setSelectedCategoryName
   };
 };
 

@@ -4,7 +4,7 @@ import { useQuestions } from "../hooks/useQuestions";
 import AnswerButton from "./AnswerButton";
 import "./Question.css";
 
-const Question = ({questions, endGame, timer, setScore, score }) => {
+const Question = ({questions, endGame, timer, setScore, score, categoryName }) => {
   const {
     currentQuestion,
     selectedIndex,
@@ -41,6 +41,7 @@ const Question = ({questions, endGame, timer, setScore, score }) => {
   return (
     <>
       <h2>{currentQuestion.question}</h2>
+      <h3>Category: {categoryName}</h3>
       <h3>Time Remaining: {timer} seconds</h3>
       <h3>Score: {score} points</h3>
       <div className="button-container">

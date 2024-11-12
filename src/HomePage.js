@@ -21,7 +21,9 @@ const HomePage = () => {
     showCategories,
     setShowCategories,
     selectedCategoryId,
-    setSelectedCategoryId
+    setSelectedCategoryId,
+    selectedCategoryName,
+    setSelectedCategoryName
   } = useGameState();
 
   const { timer, resetTimer } = useTimer(20, endGame);
@@ -30,14 +32,15 @@ const HomePage = () => {
     setShowCategories(true);
   };
 
-  const handleChosenCategory = (categoryId) => {
+  const handleChosenCategory = (categoryId, categoryName) => {
     setSelectedCategoryId(categoryId);
+    setSelectedCategoryName(categoryName);
     startOver();
     
   };
 
   const startOver = () => {
-    handleRestart(selectedCategoryId);
+    handleRestart();
     resetTimer();
   }
 
@@ -68,6 +71,7 @@ const HomePage = () => {
               timer={timer}
               setScore={setScore}
               score={score}
+              categoryName={selectedCategoryName}
             />
           )}
         </div>

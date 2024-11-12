@@ -34,7 +34,7 @@ const Categories = ({handleChosenCategory}) => {
       {categoryNames.map((categoryName, index) => (
         
         <li className="categories-list-item" key={index}>
-            <button className="categories-buttons" onClick={() => handleChosenCategory(categoryMapping[categoryName])}>
+            <button className="categories-buttons" onClick={() => handleChosenCategory(categoryMapping[categoryName], categoryName)}>
                 {categoryName}
             </button>
             
