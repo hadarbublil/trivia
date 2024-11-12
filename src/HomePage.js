@@ -35,12 +35,12 @@ const HomePage = () => {
   const handleChosenCategory = (categoryId, categoryName) => {
     setSelectedCategoryId(categoryId);
     setSelectedCategoryName(categoryName);
-    startOver();
+    startOver(categoryId);
     
   };
 
-  const startOver = () => {
-    handleRestart();
+  const startOver = (CategoryId) => {
+    handleRestart(CategoryId);
     resetTimer();
   }
 
@@ -63,6 +63,7 @@ const HomePage = () => {
               score={score}
               handleRestart={startOver}
               handleGoHome={handleGoHome}
+              CategoryId={selectedCategoryId}
             />
           ) : (
             <Question

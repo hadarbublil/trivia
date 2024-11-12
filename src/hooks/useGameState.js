@@ -10,8 +10,8 @@ export const useGameState = (initialTimer = 20) => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null); 
   const [selectedCategoryName, setSelectedCategoryName] = useState(null);
 
-  const handleRestart = async () => {
-    const fetchedQuestions = await fetchQuestions(10, selectedCategoryId);
+  const handleRestart = async (CategoryId) => {
+    const fetchedQuestions = await fetchQuestions(10, CategoryId);
     setQuestions (fetchedQuestions)
     setShowQuestion(true);
     setGameOver(false);
