@@ -5,8 +5,7 @@ import { useGameState } from "./hooks/useGameState";
 import { useTimer } from "./hooks/useTimer";
 import WelcomeScreen from "./components/WelcomeScreen";
 import Navbar from "./components/Navbar";
-import Categories from "./components/Categories"; // Ensure this import exists
-// Assuming Categories is a component that takes `categories` as a prop
+import Categories from "./components/Categories"; 
 
 const HomePage = () => {
   const {

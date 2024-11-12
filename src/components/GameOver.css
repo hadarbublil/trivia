@@ -23,6 +23,10 @@
   margin: 5px; 
 }
 
+.game-over-message button:hover{
+    background-color: #bfc0c1; 
+}
+
 .game-over-message h2 {
   font-size: 4em;
   margin-top: 0;

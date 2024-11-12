@@ -1,5 +1,5 @@
 
-.navbar {
+.Navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -8,7 +8,7 @@
     
   }
 
-  .navbar .home {
+  .Navbar .home {
     color: #818080;
     text-decoration: none; 
   }

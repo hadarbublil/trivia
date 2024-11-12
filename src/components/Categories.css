@@ -16,13 +16,17 @@
 .categories-list-item {
     list-style-type: none;
     padding: 0;
-    margin: 10px; /* Margin between items */
-    width: 40%; /* Each item takes up 40% of the row width */
+    margin: 10px; 
+    width: 40%; 
+}
+
+.categories-list-item :hover{
+    background-color: #bfc0c1; 
 }
 
 .categories-buttons {
-    width: 100%; /* Button takes up full width of list item */
-    padding: 20px; /* Button padding */
+    width: 100%;
+    padding: 20px; 
     background-color: #cfcfd263;
     cursor: pointer;
     transition: background-color 0.2s;

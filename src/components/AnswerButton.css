@@ -1,9 +1,9 @@
 .list-group-item {
-    padding: 50px; /* Padding for list items */
-    background-color: #cfcfd263; /* Light background color */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.2s; /* Smooth transition on hover */
-    border-radius: 5px; /*Rounded corners*/
+    padding: 50px; 
+    background-color: #cfcfd263; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+    border-radius: 5px; 
     list-style-type: none;
     
 }
@@ -38,15 +38,15 @@
 }
 
 .button-wrapper {
-    width: 40%; /* Each button takes up half of the container's width */
-    box-sizing: border-box; /* Include padding and border in the element's total width */
+    width: 40%; 
+    box-sizing: border-box;
     margin-bottom: 10px; 
     margin-right: 10px;
 }
 
 .list-group {
-    display: flex; /* Use flexbox to arrange items */
-    flex-wrap: wrap; /* Allow items to wrap to the next line */
-    gap: 20px; /* Space between items */
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
 }
 
