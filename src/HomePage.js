@@ -25,7 +25,7 @@ const HomePage = () => {
     setSelectedCategoryName
   } = useGameState();
 
-  const { timer, resetTimer } = useTimer(20, endGame);
+  const { timer, resetTimer } = useTimer(10, endGame);
 
   const handleStart = () => {
     setShowCategories(true);

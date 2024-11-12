@@ -1,6 +1,8 @@
 import question_mark from '../images/question_mark.jpg'
 import "./WelcomeScreen.css";
-const WelcomeScreen = ({ onStart}) => {
+import React from 'react';
+
+const WelcomeScreen = React.memo(({ onStart }) => {
     
     return ( 
     <div>
@@ -13,6 +15,6 @@ const WelcomeScreen = ({ onStart}) => {
       
     </div>
     )
- };
+ });
 
   export default WelcomeScreen
